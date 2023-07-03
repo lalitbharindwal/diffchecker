@@ -13,13 +13,30 @@ font-size: 20px;
 margin-top: 1cm;
 }
 
-
-#sheet{
+#tbl-data{
     color: red;
+    border-style: solid;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 10px;
+
 }
 
-.abc{
 
-    color: red;
+#tbl-data2{
+    color: blue;
+    border-style: solid;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 10px;
 
 }
+
