@@ -55,8 +55,9 @@
 </div>
 
 
-<table id="demo3"></table>
-<div id="demo1"></div>
+
+
+<ul id="myList"></ul>
 
 <script>
     var arr1 = [];
@@ -209,7 +210,6 @@
               
             }
     
-    
         }
         var diff = [];
         for (let m = 0; m < arr4.length; m++) {
@@ -217,22 +217,19 @@
                 
                 if(arr3[m] != arr4[m]){
                         diff.push(arr4[m]);
-                        document.getElementById("demo3").innerHTML = "Different Data";
-                        document.getElementById("demo1").innerHTML = diff.join(",")
-                             
                 }     
             }
         }
+
+        let list = document.getElementById("myList");
+ 
+        diff.forEach((item) => {
+            let li = document.createElement("li");
+            li.innerText = item;
+            list.appendChild(li);
+        });
     } 
 </script>
-
-
-
-
-
-
-
-
 </body>
 </html>
 
