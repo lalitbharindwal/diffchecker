@@ -34,6 +34,12 @@
 
 <div class="row">
     <div class="col-sm-12">
+        <button id="clear" onClick="window.location.reload();">Clear</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
     <table id="tbl-data"> </table>
     </div>
 </div>
@@ -114,7 +120,6 @@
             });
     
         });
-    
     
         function generateTableHead(table, data) {
         let thead = table.createTHead();

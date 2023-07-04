@@ -44,8 +44,6 @@ body{
     text-align: center;
     margin-top: 1cm;
     margin-left: 0.3cm;
-    margin-bottom: 2cm;
-
 }
 
 #input1{
@@ -54,18 +52,18 @@ body{
 }
 
 #input2{
-    margin-left: 3cm;
+    margin-left: 3cm
 }
-
 
 ul{
     color: rgb(5, 126, 9);
-    font-size: 15px;
-    
-    
+    font-size: 15px;   
 }
 
 #Difftitle, #dwc, #wctitle, #wc{
-
     color:#bf80ff;
+}
+
+#clear{
+    margin-top: 0.5cm;   
 }
