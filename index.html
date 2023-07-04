@@ -43,7 +43,8 @@
     <table id="tbl-data2"> </table>
 </div>
 </div>
-<ul id="myList"></ul>
+<ul id="myList1"></ul>
+<ul id="myList2"></ul>
 <script>
     var arr1 = [];
     var arr2 = [];
@@ -140,23 +141,36 @@
         }
 
         var diff = [];
+        var additional = [];
         for (let m = 0; m < arr4.length; m++) {
             if(m<arr3.length){
                 if(arr3[m] != arr4[m]){    
                         diff.push(arr4[m]);
                 }     
             }else{
-                diff.push(arr4[m]);
+                additional.push(arr4[m]);
             }
         }
 
-        let list = document.getElementById("myList");
-        document.getElementById("myList").innerHTML = "Different Data";
+        let list1 = document.getElementById("myList1");
+        if(diff.length != 0){
+        document.getElementById("myList1").innerHTML = "Different Words";
         diff.forEach((item) => {
             let li = document.createElement("li");
             li.innerText = item;
-            list.appendChild(li);
+            list1.appendChild(li);
         });
+    }
+
+        let list2 = document.getElementById("myList2");
+        if(additional.length != 0){
+        document.getElementById("myList2").innerHTML = "Additional words";
+        additional.forEach((item) => {
+            let li = document.createElement("li");
+            li.innerText = item;
+            list2.appendChild(li);
+        });
+    }
     } 
 </script>
 </body>
