@@ -12,8 +12,12 @@ body{
     padding-top: 1cm;
     }
 
+#logo{
+    width: 7cm;
+}
+
 #tbl-data{
-    color: rgb(72, 138, 251);
+    color: rgb(32, 65, 198);
     border-style: solid;
     border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
@@ -24,9 +28,7 @@ body{
     font-size: 15px;
     text-align: center;
     margin-top: 1cm;
-
-    
-
+    margin-left: 0.3cm;
 }
 
 #tbl-data2{
@@ -41,6 +43,9 @@ body{
     font-size: 15px;
     text-align: center;
     margin-top: 1cm;
+    margin-left: 0.3cm;
+    margin-bottom: 2cm;
+
 }
 
 #input1{
@@ -50,4 +55,12 @@ body{
 
 #input2{
     margin-left: 3cm;
+}
+
+
+ul{
+    color: rgb(5, 126, 9);
+    font-size: 15px;
+    
+    
 }
