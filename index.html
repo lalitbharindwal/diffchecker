@@ -43,7 +43,11 @@
     <table id="tbl-data2"> </table>
 </div>
 </div>
+<h3 id="Difftitle"></h3>
+<h3 id="dwc"></h3>
 <ul id="myList1"></ul>
+<h3 id="wctitle"></h3>
+<h3 id="wc"></h3>
 <ul id="myList2"></ul>
 <script>
     var arr1 = [];
@@ -154,17 +158,24 @@
 
         let list1 = document.getElementById("myList1");
         if(diff.length != 0){
-        document.getElementById("myList1").innerHTML = "Different Words";
-        diff.forEach((item) => {
+        count = diff.length;
+        document.getElementById("Difftitle").innerHTML = "Wrong words count";
+        document.getElementById("dwc").innerHTML = count;
+        
+
+        for(let x=0;x<diff.length;x++){
             let li = document.createElement("li");
-            li.innerText = item;
+            li.innerText = diff[x] +"-      -       -       -"+ arr3[x];
             list1.appendChild(li);
-        });
+        };
     }
 
         let list2 = document.getElementById("myList2");
         if(additional.length != 0){
-        document.getElementById("myList2").innerHTML = "Additional words";
+        count = additional.length;
+        document.getElementById("wctitle").innerHTML = "Additional words count";
+        document.getElementById("wc").innerHTML = count;
+     
         additional.forEach((item) => {
             let li = document.createElement("li");
             li.innerText = item;
