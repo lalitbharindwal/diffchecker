@@ -17,10 +17,7 @@
     <img class="navbar-brand" src="assets/logo.png">
     
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-
-          
-      </ul>
+      <ul class="navbar-nav"></ul>
     </div>
   </div>
 </nav>
@@ -47,77 +44,31 @@
     <table id="tbl-data2"> </table>
 </div>
 </div>
-
-
-
-
 <ul id="myList"></ul>
-
 <script>
     var arr1 = [];
     var arr2 = [];
+    var arr3 = [];
+    flag = 0;
        var input = document.getElementById('input1');
      input.addEventListener('change', function(){
          readXlsxFile(input.files[0]).then(function(data){
              var i = 0;
              data.map((row, index) => {
- 
                  if(i==0) {
- 
-                 let table = document.getElementById('tbl-data'); 
-                 
-                 
+                 let table = document.getElementById('tbl-data');    
                  generateTableHead (table, row);
                  window.arr1.push(row);
-                 
-                 
-                
- 
                  }
- 
                  if(i>0) {
- 
-                 let table = document.getElementById('tbl-data');
-                 
-                 generateTableRows (table, row);
-                 window.arr1.push(row);
-                 
-                 
-                 
-                 }
+                 let table = document.getElementById('tbl-data');      
+                generateTableRows (table, row);
+                window.arr1.push(row);           
+                }
                  i++;
-             });
-         
-             
+             });       
          });
-         
- 
      });
-     
- 
- 
-     function generateTableHead(table, data) {
-     let thead = table.createTHead();
-     let row = thead.insertRow(); for(let key of data) {
-     let th= document.createElement('th');
-     let text= document.createTextNode(key);
-     th.appendChild(text);
-     row.appendChild(th);
-     }
- }
-     function generateTableRows(table, data) {
-     let newRow = table.insertRow(-1);
-     data.map((row, index) => {
-     let newCell = newRow.insertCell();
-     let newText = document.createTextNode(row);
-     newCell.appendChild(newText);
-     
- });
-
-
- 
-     }
- 
  </script>
     
         
@@ -129,21 +80,32 @@
             readXlsxFile(input2.files[0]).then(function(data){
                 var i = 0;
                 data.map((row, index) => {
-    
                     if(i==0) {
-    
                     let table = document.getElementById('tbl-data2'); 
                     generateTableHead (table, row);
                     window.arr2.push(row);
-    
+                    
+                    for (let i = 0; i < arr1.length; i++) {
+                        for(let j = 0; j < arr1[i].length; j++){
+                            arr3.push(arr1[i][j]);
+                        }
+                    }
+                    for(let i = 0; i<row.length;i++){
+                        if(row[i]!=arr3[flag]){                
+                            flag++;
+                        }
+                    }
                     }
     
                     if(i>0) {
-    
                     let table = document.getElementById('tbl-data2'); 
                     generateTableRows (table, row);
                     window.arr2.push(row);
-                    
+                    for(let i = 0; i<row.length;i++){
+                        if(row[i]!=arr3[flag]){                  
+                            flag++;
+                        }
+                    }                
                     }
                     i++;
                     
@@ -169,41 +131,18 @@
         let newCell = newRow.insertCell();
         let newText = document.createTextNode(row);
         newCell.appendChild(newText);
-        
+        console.log(newRow);  
     });
         }
     </script>
-
-
-
-
 <script>
 
     function Diffchecker(){
-        var arr3 = [];
         var arr4 = [];
-    
-        for (let i = 0; i < arr1.length; i++) {
-            
-            for(let j = 0; j < arr1[i].length; j++){
-    
-                arr3.push(arr1[i][j]);
-                    
-              
-            }
-    
-    
-        }
-    
         for (let k = 0; k < arr2.length; k++) {
-            
             for(let l = 0; l < arr2[k].length; l++){
-    
                 arr4.push(arr2[k][l]);
-                    
-              
             }
-    
         }
         var diff = [];
         for (let m = 0; m < arr4.length; m++) {
@@ -216,7 +155,6 @@
         }
 
         let list = document.getElementById("myList");
- 
         diff.forEach((item) => {
             let li = document.createElement("li");
             li.innerText = item;
