@@ -11,7 +11,8 @@
   <script src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js"></script>
 </head>
 
-<body>
+<body style="background-image: url('assets/bg1.jpg'); aspect-ratio: 1920 1080;background-attachment: fixed;  
+background-size: cover;">
 <nav class="navbar navbar-expand-sm" id="navbar">
   <div class="container-fluid">
     <img class="navbar-brand" src="assets/logo.png" id="logo">
@@ -24,17 +25,17 @@
 
 <div class="row" id="title">
     <div class="col-md-6">
-        <h4 style="padding-bottom: 1cm;">Original Spreadsheet</h4>
+        <h4 style="padding-bottom: 1cm;" class="animate-charcter">Original Spreadsheet</h4>
         <input type="file" id="input1">
     </div>
     <div class="col-md-6">
-        <h4 style="padding-bottom: 1cm;">Changed Spreadsheet</h4>
+        <h4 style="padding-bottom: 1cm;" class="animate-charcter">Changed Spreadsheet</h4>
         <input type="file" id="input2">
 </div>
 
 <div class="row">
     <div class="col-sm-12">
-        <button id="clear" onClick="window.location.reload();">Clear</button>
+        <button class="button-89" onClick="window.location.reload();">Clear</button>
     </div>
 </div>
 
@@ -50,10 +51,23 @@
 </div>
 </div>
 
+<div class="row" id="Table_data">
+    <div class="col-md-12">
+        <table id="table0">
+            <tbody id="rows0">
+                <tr>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
 
 
 <div class="row" id="Table_data">
-    <div class="col-sm-4">
+    <div class="col-xl-3">
         <table id="table1">
             <tbody id="rows1">
                 <tr>
@@ -63,32 +77,39 @@
         </table>
     </div>
 
+<div class="col-xl-3">
+    <table id="table2">
+        <tbody id="rows2">
+            <tr>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-    <div class="col-sm-4">
-        <table id="table2">
-            <tbody id="rows2">
+<div class="col-xl-3">
+    <table id="table3">
+        <tbody id="rows3">
                 <tr>
                     <td></td>
                 </tr>
             </tbody>
         </table>
-
     </div>
 
-    <div class="col-sm-4">
-        <table id="table3">
-            <tbody id="rows3">
+<div class="col-xl-3">
+    <table id="table4">
+        <tbody id="rows4">
                 <tr>
                     <td></td>
                 </tr>
             </tbody>
         </table>
-
     </div>
 </div>  
+
 <h3 id="Difftitle"></h3>
 <h3 id="dwc"></h3>
-
 <h3 id="wctitle"></h3>
 <h3 id="wc"></h3>
 <ul id="myList2"></ul>
@@ -167,7 +188,7 @@
         th.appendChild(text);
         row.appendChild(th);
         }
-    }
+}
         function generateTableRows(table, data) {
         let newRow = table.insertRow(-1);
         data.map((row, index) => {
@@ -180,10 +201,19 @@
 <script>
 
     function Diffchecker(){
-        var arr4 = [];
+        var row = [];
+        var column = [];
+         var arr4 = [];
         for (let k = 0; k < arr2.length; k++) {
+
             for(let l = 0; l < arr2[k].length; l++){
+
                 arr4.push(arr2[k][l]);
+
+                if(arr2[k][l] != arr1[k][l]){    
+                    row.push(k+1);
+                column.push(l+1);
+                }    
             }
         }
 
@@ -199,62 +229,92 @@
                 if(arr4[m]!= arr3[m]){
                     same.push(arr3[m]);
                 }
-
             }else{
                 additional.push(arr4[m]);
             }
-
-            
-
         }
 
-       
         if(diff.length != 0){
         count = diff.length;
         document.getElementById("Difftitle").innerHTML = "Wrong words count";
         document.getElementById("dwc").innerHTML = count;
         }
-          
+
+        var newRow0 = document.createElement("tr");
+        var newCell0 = document.createElement("td");
+        newCell0.innerHTML = "ANALYSIS ON EXCEL SHEET";
+        newRow0.append(newCell0);
+        document.getElementById("rows0").appendChild(newRow0);
+
+        var newRow2 = document.createElement("tr");
+        var newCell2 = document.createElement("td");
+        newCell2.innerHTML = "Original Spreadsheet";
+        newRow2.append(newCell2);
+        document.getElementById("rows1").appendChild(newRow2);
+
+        var newRow1 = document.createElement("tr");
+        var newCell1 = document.createElement("td");
+        newCell1.innerHTML = "Changed Spreadsheet";
+        newRow1.append(newCell1);
+        document.getElementById("rows2").appendChild(newRow1);
+
+        var newRow3 = document.createElement("tr");
+        var newCell3 = document.createElement("td");
+        newCell3.innerHTML = "Wrong Data";
+        newRow3.append(newCell3);
+        document.getElementById("rows3").appendChild(newRow3);
+
+        var newRow4 = document.createElement("tr");
+        var newCell4 = document.createElement("td");
+        newCell4.innerHTML = "Location of wrong data";
+        newRow4.append(newCell4);
+        document.getElementById("rows4").appendChild(newRow4);
+
         for(let x=0;x<diff.length;x++){
             
             var newRow1 = document.createElement("tr");
             var newCell1 = document.createElement("td");
-            newCell1.innerHTML = diff[x];
+            newCell1.innerHTML = diff[x]?.toString() ?? 'Blank';
             newRow1.append(newCell1);
             document.getElementById("rows2").appendChild(newRow1);
 
             var newRow2 = document.createElement("tr");
             var newCell2 = document.createElement("td");
-            newCell2.innerHTML = same[x];
+            newCell2.innerHTML = same[x]?.toString() ?? 'Blank';
             newRow2.append(newCell2);
             document.getElementById("rows1").appendChild(newRow2);
             
             if (typeof diff[x] == "string") {
-            console.log("s")
             var diff_word = "";
             for (let i = 0; i < diff[x].length; i++) {
+            
             if(diff[x][i]!=same[x][i]){
-                diff_word = diff_word + "    " + diff[x][i];
-                
+                diff_word = diff_word + "    " + diff[x][i];     
             }
             }
+        
             var newRow3 = document.createElement("tr");
             var newCell3 = document.createElement("td");
-            newCell3.innerHTML = diff_word;
+            newCell3.innerHTML = diff_word?.toString() ?? 'Blank';;
             newRow3.append(newCell3);
             document.getElementById("rows3").appendChild(newRow3);
             } else {
             var newRow3 = document.createElement("tr");
             var newCell3 = document.createElement("td");
-            newCell3.innerHTML = diff[x];
+            newCell3.innerHTML = diff[x]?.toString() ?? 'Blank';;
             newRow3.append(newCell3);
             document.getElementById("rows3").appendChild(newRow3);
+            }  
+ 
+            var newRow4 = document.createElement("tr");
+            var newCell4 = document.createElement("td");
+            <!--newCell4.innerHTML = "(" + (Math.ceil(location[x]/arr2[x].length)).toString() + "," + (Math.abs((arr2[x].length*(Math.floor(location[x]/arr2[x].length))-location[x]))+1).toString() + ")";-->
+            if(x<row.length && x<column.length){
+            newCell4.innerHTML = "(" + row[x] + "," + column[x] + ")";
             }
-
-
-            
+            newRow4.append(newCell4);
+            document.getElementById("rows4").appendChild(newRow4);   
         };
-    
 
         let list2 = document.getElementById("myList2");
         if(additional.length != 0){
