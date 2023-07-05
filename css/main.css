@@ -67,3 +67,16 @@ ul{
 #clear{
     margin-top: 0.5cm;   
 }
+
+
+#Table_data, #tb1, #tb2{
+    text-align: center;
+
+
+}
+#table1, #table2, #table3{
+    color: blue;
+    font-size: 15px;
+    width: 100%;
+}
+
