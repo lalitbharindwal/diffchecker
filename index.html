@@ -114,6 +114,19 @@ background-size: cover;">
 <h3 id="wc"></h3>
 <ul id="myList2"></ul>
 
+<div class="col-xl-3">
+    <table id="table5">
+        <tbody id="rows5">
+                <tr>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> 
+
+<div class="content"></div>
+
 <script>
     var arr1 = [];
     var arr2 = [];
@@ -301,7 +314,7 @@ background-size: cover;">
             } else {
             var newRow3 = document.createElement("tr");
             var newCell3 = document.createElement("td");
-            newCell3.innerHTML = diff[x]?.toString() ?? 'Blank';;
+            newCell3.innerHTML = diff[x]?.toString() ?? 'Blank';
             newRow3.append(newCell3);
             document.getElementById("rows3").appendChild(newRow3);
             }  
@@ -328,7 +341,50 @@ background-size: cover;">
             list2.appendChild(li);
         });
     }
-    } 
+
+  display(row, column);
+
+    }
+    
+
+    function display(roww, columnn){
+function createTable(tableData) {
+  var table = document.createElement('table');
+  var row = {};
+  var cell = {};
+    var countr = 0;
+    var countc = 0;
+    var flag = 0;
+  tableData.forEach(function(rowData) {
+    row = table.insertRow(-1); // [-1] for last position in Safari
+    countr++;
+  
+    rowData.forEach(function(cellData) {
+      cell = row.insertCell();
+      countc++;
+      
+      if(countc == columnn[flag] && countr == roww[flag]){
+        cell = row.insertCell();
+        cell.style.color = "red";
+        flag++;
+      }
+      else{
+        cell = row.insertCell();
+        cell.style.color = "violet";
+      }
+      cell.textContent = cellData;
+      
+    });
+    countc = 0;
+  });
+  document.body.appendChild(table);
+}
+    
+createTable(arr2);
+
+    }
+    
+    
 </script>
 </body>
 </html>
