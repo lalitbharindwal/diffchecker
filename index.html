@@ -11,8 +11,8 @@
   <script src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js"></script>
 </head>
 
-<body style="background-image: url('assets/bg1.jpg'); aspect-ratio: 1920 1080;background-attachment: fixed;  
-background-size: cover;">
+<body>
+    <!--style="background-image: url('assets/bg1.jpg'); aspect-ratio: 1920 1080;background-attachment: fixed;  background-size: cover;"-->
 <nav class="navbar navbar-expand-sm" id="navbar">
   <div class="container-fluid">
     <img class="navbar-brand" src="assets/logo.png" id="logo">
@@ -125,7 +125,7 @@ background-size: cover;">
     </div>
 </div> 
 
-<div class="content"></div>
+<table id="table6"></table>
 
 <script>
     var arr1 = [];
@@ -365,12 +365,12 @@ function createTable(tableData) {
       
       if(countc == columnn[flag] && countr == roww[flag]){
         cell = row.insertCell();
-        cell.style.color = "red";
+        cell.style.color = "green";
         flag++;
       }
       else{
         cell = row.insertCell();
-        cell.style.color = "violet";
+        cell.style.color = "red";
       }
       cell.textContent = cellData;
       
