@@ -64,8 +64,6 @@
 
 </div>
 
-
-
 <div class="row" id="Table_data">
     <div class="col-xl-3">
         <table id="table1">
@@ -125,8 +123,6 @@
     </div>
 </div> 
 
-<table id="table6"></table>
-
 <script>
     var arr1 = [];
     var arr2 = [];
@@ -151,9 +147,7 @@
              });       
          });
      });
- </script>
-    
-        <script>
+
         var input2 = document.getElementById('input2');
         input2.addEventListener('change', function(){
             readXlsxFile(input2.files[0]).then(function(data){
@@ -190,7 +184,6 @@
                 });
                 Diffchecker();
             });
-    
         });
     
         function generateTableHead(table, data) {
@@ -210,8 +203,6 @@
         newCell.appendChild(newText);
     });
         }
-    </script>
-<script>
 
     function Diffchecker(){
         var row = [];
@@ -341,15 +332,13 @@
             list2.appendChild(li);
         });
     }
-
   display(row, column);
-
     }
-    
 
-    function display(roww, columnn){
+function display(roww, columnn){
 function createTable(tableData) {
   var table = document.createElement('table');
+  table.style.marginLeft = "5cm";
   var row = {};
   var cell = {};
     var countr = 0;
@@ -379,14 +368,8 @@ function createTable(tableData) {
   });
   document.body.appendChild(table);
 }
-    
 createTable(arr2);
-
-    }
-    
-    
+}
 </script>
 </body>
 </html>
-
-
