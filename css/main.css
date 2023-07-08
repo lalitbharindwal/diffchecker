@@ -2,13 +2,23 @@
     background-color: #bf80ff;
 }
 
-
 #logo{
     width: 7cm;
 }
 
+#btn{
+    text-align: center;
+    margin-top: 3cm;
+}
+
 #btn1{
-    color: #bf80ff;
+    color: #31035f;
     text-align: center;
     width: 100%;
+    width: 5cm;
+    background-color: aqua;
+    border-color: rgb(2, 116, 116);
+    border-radius: 40%;
+    height: 1.3cm;
+    border-style: solid;
 }
