@@ -14,11 +14,10 @@
 #btn1{
     color: #31035f;
     text-align: center;
-    width: 100%;
     width: 5cm;
     background-color: aqua;
     border-color: rgb(2, 116, 116);
     border-radius: 40%;
-    height: 1.3cm;
+    height: 1.4cm;
     border-style: solid;
 }

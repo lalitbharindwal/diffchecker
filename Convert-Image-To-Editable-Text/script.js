@@ -1,14 +1,3 @@
-
-// Convert Image To Editable Text With JavaScript
-
-// Code written by:
-// 👨🏻‍⚕️ Coding Design (Jeet Saru)
-
-// > You can do whatever you want with the code. However if you love my content, you can **SUBSCRIBED** my YouTube Channel.
-
-// 🌎link: www.youtube.com/codingdesign 
-
-
 var s = [];
 var t = [];
 var img_url = document.querySelector('#img-url'),
@@ -17,8 +6,6 @@ var img_url = document.querySelector('#img-url'),
     img_result = document.querySelector('#img-result');
 
 var converted_text = document.querySelector('#converted-text');
-
-
 
 img_url.onclick = () => {
     img_url.select();
@@ -29,12 +16,8 @@ copy_text.onclick = () => {
     setTimeout(() => {
         copy_text.setAttribute('title', "Copy text.");
     }, 2000);
-
     if (converted_text.value != '') {
-
-        navigator.clipboard.writeText(converted_text.value);
-        
-       
+        navigator.clipboard.writeText(converted_text.value);   
     }
 }
 
@@ -51,7 +34,6 @@ async function createFile() {
                 let file = new File([blob_file], blob_file.name, { type: blob_file.type });
                 recognizeText(file);
             })
-
     }
 }
 
@@ -66,7 +48,6 @@ function displayImage() {
 }
 
 function recognizeText(file) {
-    
     Tesseract.recognize(file)
         .then(result => {
             converted_text.value = result.text;
