@@ -13,11 +13,26 @@
     min-height: 100vh;
     background: var(--gradient);
     color: #fff;
-
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    aspect-ratio: 1920 1080;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.app2 {
+    min-height: 100vh;
+    background: var(--gradient);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    aspect-ratio: 1920 1080;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .flex-between {
@@ -82,7 +97,7 @@
     transform: translate(-50%, -8px);
 }
 
-.upload-file input#img-url {
+.upload-file input#img-url, input#img-url2{
     width: 86%;
     height: 100%;
     background-color: transparent;
@@ -104,7 +119,7 @@
     border-radius: 1rem;
 }
 
-.result #img-result {
+.result #img-result, #img-result2  {
     max-width: 55%;
     max-height: 100%;
     width: auto;

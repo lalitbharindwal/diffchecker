@@ -49,8 +49,9 @@ function displayImage() {
 
 function recognizeText(file) {
     Tesseract.recognize(file)
-        .then(result => {
-            converted_text.value = result.text;
-        }
-        )
+    .then(result => { converted_text.value = result.text;
+        compare1(converted_text.value);
+    });
+    
 }
+
