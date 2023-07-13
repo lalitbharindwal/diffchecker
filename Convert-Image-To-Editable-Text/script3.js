@@ -10,6 +10,29 @@ function compare2(value2){
 }
 
 function compare(){
+        var text1 = var1;
+        var text2 = var2;  
+        fetch_data();      
+        function fetch_data(){
+        fetch('https://api.diffchecker.com/public/text?output_type=html_json&email=lalitbharindwal@gmail.com', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            // body: '{\n    "left": "roses are red\\nviolets are blue",\n    "right": "roses are green\\nviolets are purple",\n    "diff_level": "word"\n}',
+            body: JSON.stringify({
+              'left': text1,
+              'right': text2,
+              'diff_level': 'word'
+            })
+            }).then((data)=>{
+                return data.text();
+            }).then((data2)=>{
+                var text_json = JSON.parse(data2);
+                console.log(text_json);
+                document.getElementById("s").innerHTML = text_json["html"]+"<style>"+text_json["css"]+ "</style>";
+            });
+        }
     var1 = var1.split(" ");
     var temp = [];
     for(var i = 0;i<var2.length;i++){
