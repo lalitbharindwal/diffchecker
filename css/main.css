@@ -7,7 +7,7 @@ body{
     -moz-osx-font-smoothing: grayscale;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
       background-size: 900% 700%;
-      animation: gradient 3s ease infinite;
+      animation: gradient 8s ease infinite;
 }
 
 html, body {
@@ -78,7 +78,7 @@ html, body {
 }
 
 #navbar{
-    background-color: #bf80ff;
+    background-color: transparent;
 }
 
 #logo{
@@ -90,13 +90,62 @@ html, body {
     margin-top: 3cm;
 }
 
-#btn1{
-    color: #31035f;
-    text-align: center;
-    width: 5cm;
-    background-color: aqua;
-    border-color: rgb(2, 116, 116);
-    border-radius: 40%;
-    height: 1.4cm;
-    border-style: solid;
+#btn1 {
+  border: none;
+  padding: 0.8em 2.5em;
+  outline: none;
+  color: white;
+  font-style: 1.2em;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  background: none;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.45);
+  width: 5cm;
+  margin-top: 1cm;
+}
+
+#btn1:before,
+#btn1:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 10em;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 105%;
+  height: 100%;
+  content: "";
+  z-index: -2;
+  background-size: 400% 400%;
+  background: linear-gradient(
+    60deg,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
+  );
+}
+
+#btn1:before {
+  -webkit-filter: blur(7px);
+  filter: blur(7px);
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  -webkit-animation: pulse 10s infinite ease;
+  animation: pulse 10s infinite ease;
+}
+
+#btn1:after {
+  -webkit-filter: blur(0.3px);
+  filter: blur(0.3px);
+}
+
+#btn1:hover:before {
+  width: 115%;
+  height: 115%;
 }
