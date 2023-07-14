@@ -36,12 +36,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12" id="btn_border">
-          <button type="button" id="btn" onclick="myFunction()">Check Difference</button>
+        <div id="btn1"><button type="button" id="btn" onclick="myFunction()">Check Difference</button></div>
         </div>
     </div>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12"><p id="s"></p></div>
+  </div>
 
-<p id="s"></p>
+
 <p id="demo"></p>
 
 <script>
@@ -70,7 +74,6 @@ fetch('https://api.diffchecker.com/public/text?output_type=html_json&email=lalit
         return data.text();
     }).then((data2)=>{
         var text_json = JSON.parse(data2);
-        console.log(text_json);
         document.getElementById("s").innerHTML = text_json["html"]+"<style>"+text_json["css"]+ "</style>";
     });
 }
