@@ -88,6 +88,7 @@ html, body {
 #btn{
     text-align: center;
     margin-top: 3cm;
+    margin-bottom: 0.5cm;
 }
 
 #btn1 {
@@ -95,13 +96,13 @@ html, body {
   padding: 0.8em 2.5em;
   outline: none;
   color: white;
-  font-style: 1.2em;
+  font-style: 1.1em;
   position: relative;
   z-index: 1;
   cursor: pointer;
   background: none;
   text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.45);
-  width: 5cm;
+  width: 4.5cm;
   margin-top: 1cm;
 }
 
