@@ -8,7 +8,7 @@
     padding-top: 1cm;
     }
 
-    table { border-collapse: collapse; }
+table { border-collapse: collapse; }
     tr { border: 1px solid #dfdfdf; }
     th, td { padding: 2px 5px 2px 5px;}
 
@@ -70,8 +70,6 @@ ul{
 
 #Table_data, #tb1, #tb2{
     text-align: center;
-
-
 }
 
 #table0{
