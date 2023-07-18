@@ -17,7 +17,6 @@
 <nav class="navbar navbar-expand-sm" id="navbar">
   <div class="container-fluid">
     <img class="navbar-brand" src="assets/logo.png" id="logo">
-    
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav"></ul>
     </div>
@@ -67,44 +66,18 @@
 <div class="row" id="Table_data">
     <div class="col-xl-3">
         <table id="table1">
-            <tbody id="rows1">
-                <tr>
+            <tbody id="rows1"><tr>
                     <td></td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-<div class="col-xl-3">
-    <table id="table2">
-        <tbody id="rows2">
-            <tr>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<div class="col-xl-3"><table id="table2"><tbody id="rows2"><tr><td></td></tr></tbody></table></div>
 
-<div class="col-xl-3">
-    <table id="table3">
-        <tbody id="rows3">
-                <tr>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="col-xl-3"><table id="table3"><tbody id="rows3"><tr><td></td></tr></tbody></table></div>
 
-<div class="col-xl-3">
-    <table id="table4">
-        <tbody id="rows4">
-                <tr>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>  
+<div class="col-xl-3"><table id="table4"><tbody id="rows4"><tr><td></td></tr></tbody></table></div></div>  
 
 <h3 id="Difftitle"></h3>
 <h3 id="dwc"></h3>
@@ -112,16 +85,7 @@
 <h3 id="wc"></h3>
 <ul id="myList2"></ul>
 
-<div class="col-xl-3">
-    <table id="table5">
-        <tbody id="rows5">
-                <tr>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div> 
+<div class="col-xl-3"><table id="table5"><tbody id="rows5"><tr><td></td></tr></tbody></table></div></div> 
 
 <script>
     var arr1 = [];
@@ -209,11 +173,8 @@
         var column = [];
          var arr4 = [];
         for (let k = 0; k < arr2.length; k++) {
-
             for(let l = 0; l < arr2[k].length; l++){
-
                 arr4.push(arr2[k][l]);
-
                 if(arr2[k][l] != arr1[k][l]){    
                     row.push(k+1);
                 column.push(l+1);
@@ -229,7 +190,6 @@
                 if(arr3[m] != arr4[m]){    
                         diff.push(arr4[m]);
                 }     
-
                 if(arr4[m]!= arr3[m]){
                     same.push(arr3[m]);
                 }
@@ -274,29 +234,24 @@
         newRow4.append(newCell4);
         document.getElementById("rows4").appendChild(newRow4);
 
-        for(let x=0;x<diff.length;x++){
-            
+        for(let x=0;x<diff.length;x++){  
             var newRow1 = document.createElement("tr");
             var newCell1 = document.createElement("td");
             newCell1.innerHTML = diff[x]?.toString() ?? 'Blank';
             newRow1.append(newCell1);
             document.getElementById("rows2").appendChild(newRow1);
-
             var newRow2 = document.createElement("tr");
             var newCell2 = document.createElement("td");
             newCell2.innerHTML = same[x]?.toString() ?? 'Blank';
             newRow2.append(newCell2);
-            document.getElementById("rows1").appendChild(newRow2);
-            
+            document.getElementById("rows1").appendChild(newRow2);   
             if (typeof diff[x] == "string") {
             var diff_word = "";
-            for (let i = 0; i < diff[x].length; i++) {
-            
+            for (let i = 0; i < diff[x].length; i++) {   
             if(diff[x][i]!=same[x][i]){
                 diff_word = diff_word + "    " + diff[x][i];     
             }
             }
-        
             var newRow3 = document.createElement("tr");
             var newCell3 = document.createElement("td");
             newCell3.innerHTML = diff_word?.toString() ?? 'Blank';;
@@ -309,7 +264,6 @@
             newRow3.append(newCell3);
             document.getElementById("rows3").appendChild(newRow3);
             }  
- 
             var newRow4 = document.createElement("tr");
             var newCell4 = document.createElement("td");
             <!--newCell4.innerHTML = "(" + (Math.ceil(location[x]/arr2[x].length)).toString() + "," + (Math.abs((arr2[x].length*(Math.floor(location[x]/arr2[x].length))-location[x]))+1).toString() + ")";-->
@@ -319,13 +273,11 @@
             newRow4.append(newCell4);
             document.getElementById("rows4").appendChild(newRow4);   
         };
-
         let list2 = document.getElementById("myList2");
         if(additional.length != 0){
         count = additional.length;
         document.getElementById("wctitle").innerHTML = "Additional words count";
         document.getElementById("wc").innerHTML = count;
-     
         additional.forEach((item) => {
             let li = document.createElement("li");
             li.innerText = item;
@@ -347,11 +299,9 @@ function createTable(tableData) {
   tableData.forEach(function(rowData) {
     row = table.insertRow(-1); // [-1] for last position in Safari
     countr++;
-  
     rowData.forEach(function(cellData) {
       cell = row.insertCell();
       countc++;
-      
       if(countc == columnn[flag] && countr == roww[flag]){
         cell = row.insertCell();
         cell.style.color = "green";
@@ -362,7 +312,6 @@ function createTable(tableData) {
         cell.style.color = "red";
       }
       cell.textContent = cellData;
-      
     });
     countc = 0;
   });
